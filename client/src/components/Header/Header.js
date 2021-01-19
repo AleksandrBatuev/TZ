@@ -9,10 +9,10 @@ import { exit_fetch_data } from '../../action/exit_action.js';
 class Header extends React.Component {
 
     componentDidUpdate(prevProps) {
-        if (prevProps.exit !== this.props.exit && this.props.exit.answer === 'ОК') {
+        if (prevProps.exit !== this.props.exit && this.props.exit.answer == "OK") {
             const cookie_key = 'Cookie';
             delete_cookie(cookie_key);
-            window.location.assign('http://localhost:3000')
+            window.location.assign('http://server')
         }
     }
 
@@ -21,13 +21,13 @@ class Header extends React.Component {
         const data = {
             sess: read_cookie(cookie_key)
         };
-        this.props.featchData_exit('http://localhost:3001/exit', data);
+        this.props.featchData_exit('http://server/API/logout/logout.php', data);
       }
 
     render() {
-        if (window.location.href === 'http://localhost:3000/' ||
-            window.location.href === 'http://localhost:3000/login' ||
-            window.location.href === 'http://localhost:3000/registration') {
+        if (window.location.href === 'http://server/' ||
+            window.location.href === 'http://server/login' ||
+            window.location.href === 'http://server/registration') {
             return (
                 <div className='header'>
                     <div className='center'>
@@ -36,7 +36,9 @@ class Header extends React.Component {
                     </div>
                 </div>
             );
-        } else {
+        } else if (window.location.href == 'http://server/account' ||
+                   window.location.href == 'http://server/contacts' ||
+                   window.location.href == 'http://server/favorites'){
             return (
                 <div className='header'>
                     <div className='center'>

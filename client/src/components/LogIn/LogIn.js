@@ -21,7 +21,8 @@ class LogIn extends React.Component {
     } else if (prevProps.auth !== this.props.auth && this.props.auth) {
       const cookie_key = 'Cookie';
       bake_cookie(cookie_key, this.props.auth.session_user);
-      window.location.assign('http://localhost:3000/account');
+      window.location.assign('http://server/account')
+      //this.props.history.push('/account');;
     }
   }
 
@@ -31,7 +32,7 @@ class LogIn extends React.Component {
         email: this.state.email,
         pass: md5(this.state.password)
       };
-      this.props.featchData_auth('http://localhost:3001/auth', data);
+      this.props.featchData_auth('http://server/API/auth/auth.php', data);
       this.setState({email: '', password: ''});
     }
   };
@@ -66,7 +67,7 @@ class LogIn extends React.Component {
           <input className='input' onChange={this.handle_user_input} name="email" value={email} placeholder="e-mail" />
           <input className='input' type="password" name="password" onChange={this.handle_user_input} value={password} placeholder="Пароль" />
         </form>
-        <Button className='reg_button' onClick={this.Auth_click}>Вход</Button>
+        <Button  className='reg_button' onClick={this.Auth_click}>Вход</Button>
         <p className='error_valid' >{error_valid}</p>
       </div>
     );

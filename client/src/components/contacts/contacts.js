@@ -16,10 +16,10 @@ class Contacts extends React.Component {
             const data = {
                 sess: read_cookie(cookie_key)
             };
-            this.props.featchData_fav_list('http://localhost:3001/fav_list', data);
-            this.props.featchData_all_contact('http://localhost:3001/all_contact');
+            this.props.featchData_fav_list('http://server/API/fav_list/fav_list.php', data);
+            this.props.featchData_all_contact('http://server/API/all_contact/all_contact.php');
         } else if (read_cookie(cookie_key).length === 0) {
-            window.location.assign('http://localhost:3000')
+            window.location.assign('http://server/')
         }
     }
 
@@ -40,8 +40,8 @@ class Contacts extends React.Component {
             sess: read_cookie(cookie_key),
             id: id
         }
-        this.props.featchData_add_to_fav('http://localhost:3001/add_to_fav', data);
-        this.props.featchData_fav_list('http://localhost:3001/fav_list', data);
+        this.props.featchData_add_to_fav('http://server/API/add_to_fav/add_to_fav.php', data);
+        this.props.featchData_fav_list('http://server/API/fav_list/fav_list.php', data);
     }
 
     render() {

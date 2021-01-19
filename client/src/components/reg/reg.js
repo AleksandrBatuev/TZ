@@ -66,7 +66,7 @@ class Registration extends React.Component {
                 first_name: this.state.first_name,
                 last_name: this.state.last_name
             };
-            this.props.featchData_new('http://localhost:3001/reg', data);
+            this.props.featchData_new('http://server/API/reg/reg.php', data);
             this.setState({ email: '', password: '', password_confirm: '', first_name: '', last_name: '' });
         }
     };

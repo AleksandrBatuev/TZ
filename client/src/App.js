@@ -17,9 +17,9 @@ class App extends React.Component {
         <Switch>
           <Route path="/login" component={LogIn} />
           <Route path="/registration" component={Registration}/>
-          <Route path='/account' component={account}/>
-          <Route path='/contacts' component={contacts}/>
-          <Route path='/favorites' component={favorites}/>
+          <Route path="/account" component={account}/>
+          <Route path="/contacts" component={contacts}/>
+          <Route path="/favorites" component={favorites}/>
         </Switch>
       </Router>
     )

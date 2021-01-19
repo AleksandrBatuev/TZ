@@ -12,9 +12,9 @@ class Favorites extends React.Component {
             let data = {
                 sess: read_cookie(cookie_key)
             }
-            this.props.featchData_fav_list('http://localhost:3001/fav_list', data);
+            this.props.featchData_fav_list('http://server/API/fav_list/fav_list.php', data);
         } else if (read_cookie(cookie_key).length === 0) {
-            window.location.assign('http://localhost:3000')
+            window.location.assign('http://server/')
         }
     }
 

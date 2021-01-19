@@ -12,9 +12,9 @@ class Account extends React.Component {
       let data = {
         sess: read_cookie(cookie_key)
       }
-      this.props.featchData_user_info('http://localhost:3001/acc_info', data);
+      this.props.featchData_user_info('http://server/API//acc_info/acc_info.php', data);
     } else if (read_cookie(cookie_key).length === 0) {
-        window.location.assign('http://localhost:3000')
+        window.location.assign('http://server/')
     }
   }
 
